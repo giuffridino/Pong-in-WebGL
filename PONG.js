@@ -21,11 +21,15 @@ window.onload = function init()
 
     function displayPlayerNames(hud)
     {
+        // hud.save();
+        // hud.rotate( 3 * Math.PI / 2);
+        // hud.translate(canvas.width - 1, 0);
         hud.font = '20px "Century Gothic"'; 
         hud.fillStyle = 'White';
         hud.textAlign = "right";
         hud.fillText('Player 1', 500, 290);
         hud.fillText('Player 2', 500, 238);
+        // hud.restore();
     }
 
     function displayControlBars(hud)
@@ -146,6 +150,15 @@ window.onload = function init()
     const rectWidth = 0.8;
     const rectHeight = 0.4;
 
+    //Draw the rectangle in which you want to write the text that the game has stopped and you wish to restart
+    // function displayStoppedWriting(hud)
+    // {
+    //     hud.font = '20px "Century Gothic"'; 
+    //     hud.fillStyle = 'Black';
+    //     let text = `Player ${HitBar} scores`;
+    //     hud.fillText(text, 256, 290);
+    // }
+
     function drawFinalRect()
     {
         let rectVertices = [ vec2(rectX, rectY), vec2(rectX, rectY - rectHeight), vec2(rectX - rectWidth, rectY),
@@ -209,11 +222,13 @@ window.onload = function init()
             if(i % 2 == 0)
             {
                 temp_spikeHeight = spikeHeight / 2;
+                // temp_spikeHeight = spikeHeight / 3 + Math.random() / 8;
             }
             else
             {
 
                 temp_spikeHeight = spikeHeight;
+                // temp_spikeHeight = spikeHeight / 2 + Math.random() / 8;
             }
             spikesVertices.push(vec2(spikeX + i * spikeDispl, spikeY));
             spikesVertices.push(vec2(spikeX + i * spikeDispl + spikeDispl / 2, spikeY - temp_spikeHeight));
@@ -286,7 +301,7 @@ window.onload = function init()
     var vectDistance = distVec2(center, random_point);
     var vectDirection = vec2(normVec2(vectDistance));
     var ballColors = [vec4(1.0, 1.0, 1.0, 1.0)];
-    const ballSpeed = 0.06;
+    const ballSpeed = 0.15;
 
     // Function to quickly get the new reflected direction. Add in a random
     // x-factor to make the ball be a bit more unpredictable. The direction
@@ -320,7 +335,7 @@ window.onload = function init()
                 return return_value[0] - rand_dir;
             }
         }
-        return add(mult_vec, vectDirection);
+        return add(mult_vec,vectDirection);
     }
 
     var winnerPlayer = 0;
