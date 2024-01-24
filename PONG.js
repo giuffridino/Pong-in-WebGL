@@ -301,7 +301,7 @@ window.onload = function init()
     var vectDistance = distVec2(center, random_point);
     var vectDirection = vec2(normVec2(vectDistance));
     var ballColors = [vec4(1.0, 1.0, 1.0, 1.0)];
-    const ballSpeed = 0.15;
+    const ballSpeed = 0.05;
 
     // Function to quickly get the new reflected direction. Add in a random
     // x-factor to make the ball be a bit more unpredictable. The direction
